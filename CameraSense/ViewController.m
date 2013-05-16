@@ -154,7 +154,7 @@ int cnt;
     [rootLayer insertSublayer:self.videoLayer atIndex:0];
     
     self.outputStream = [[AVCaptureVideoDataOutput alloc]init];
-    self.outputStream.videoSettings = [NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA]
+    self.outputStream.videoSettings = [NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedInt:kCVPixelFormatType_24BGR]
                                                                   forKey:(NSString *)kCVPixelBufferPixelFormatTypeKey];
     [self.outputStream setAlwaysDiscardsLateVideoFrames:YES];
     

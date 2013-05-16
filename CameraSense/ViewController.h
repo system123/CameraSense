@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMotion/CoreMotion.h>
+#import "GPUImage.h"
 
 #define BALL_R 25
 
