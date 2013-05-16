@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EAE7D1F171FEA54002751EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE7D1E171FEA54002751EF /* AVFoundation.framework */; };
+		6EAE7D211725288E002751EF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE7D201725288E002751EF /* CoreMedia.framework */; };
+		6EB9474B1744CD74005D02BC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB947491744CD74005D02BC /* OpenGLES.framework */; };
+		6EB9474C1744CD74005D02BC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB9474A1744CD74005D02BC /* QuartzCore.framework */; };
 		6EBFD5991704407500028207 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBFD5981704407500028207 /* UIKit.framework */; };
 		6EBFD59B1704407500028207 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBFD59A1704407500028207 /* Foundation.framework */; };
 		6EBFD59D1704407500028207 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBFD59C1704407500028207 /* CoreGraphics.framework */; };
@@ -23,6 +27,10 @@
 		6EBFD5BF1704407500028207 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBFD59A1704407500028207 /* Foundation.framework */; };
 		6EBFD5C71704407500028207 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFD5C51704407500028207 /* InfoPlist.strings */; };
 		6EBFD5CA1704407500028207 /* CameraSenseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBFD5C91704407500028207 /* CameraSenseTests.m */; };
+		6EBFD5D61704410400028207 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBFD5D31704410400028207 /* CoreMotion.framework */; };
+		6EBFD5D71704410400028207 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBFD5D41704410400028207 /* CoreVideo.framework */; };
+		6EBFD5DB170C200F00028207 /* smiley-face-200x200.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFD5DA170C200F00028207 /* smiley-face-200x200.jpg */; };
+		6EEE4DC617428ADB009FE238 /* CMMotionManagerSim.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE4DC517428ADB009FE238 /* CMMotionManagerSim.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc "; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6EAE7D1E171FEA54002751EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6EAE7D201725288E002751EF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		6EB947491744CD74005D02BC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		6EB9474A1744CD74005D02BC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6EBFD5951704407500028207 /* CameraSense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraSense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EBFD5981704407500028207 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6EBFD59A1704407500028207 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +70,13 @@
 		6EBFD5C61704407500028207 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EBFD5C81704407500028207 /* CameraSenseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraSenseTests.h; sourceTree = "<group>"; };
 		6EBFD5C91704407500028207 /* CameraSenseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraSenseTests.m; sourceTree = "<group>"; };
+		6EBFD5D31704410400028207 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6EBFD5D41704410400028207 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		6EBFD5D51704410400028207 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		6EBFD5D91704410700028207 /* CameraSense.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CameraSense.entitlements; sourceTree = "<group>"; };
+		6EBFD5DA170C200F00028207 /* smiley-face-200x200.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "smiley-face-200x200.jpg"; sourceTree = "<group>"; };
+		6EEE4DC417428ADB009FE238 /* CMMotionManagerSim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMMotionManagerSim.h; sourceTree = "<group>"; };
+		6EEE4DC517428ADB009FE238 /* CMMotionManagerSim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMMotionManagerSim.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +84,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EB9474B1744CD74005D02BC /* OpenGLES.framework in Frameworks */,
+				6EB9474C1744CD74005D02BC /* QuartzCore.framework in Frameworks */,
+				6EAE7D211725288E002751EF /* CoreMedia.framework in Frameworks */,
+				6EAE7D1F171FEA54002751EF /* AVFoundation.framework in Frameworks */,
+				6EBFD5D61704410400028207 /* CoreMotion.framework in Frameworks */,
+				6EBFD5D71704410400028207 /* CoreVideo.framework in Frameworks */,
 				6EBFD5991704407500028207 /* UIKit.framework in Frameworks */,
 				6EBFD59B1704407500028207 /* Foundation.framework in Frameworks */,
 				6EBFD59D1704407500028207 /* CoreGraphics.framework in Frameworks */,
@@ -87,6 +112,8 @@
 		6EBFD58C1704407400028207 = {
 			isa = PBXGroup;
 			children = (
+				6EB947491744CD74005D02BC /* OpenGLES.framework */,
+				6EB9474A1744CD74005D02BC /* QuartzCore.framework */,
 				6EBFD59E1704407500028207 /* CameraSense */,
 				6EBFD5C21704407500028207 /* CameraSenseTests */,
 				6EBFD5971704407500028207 /* Frameworks */,
@@ -106,6 +133,11 @@
 		6EBFD5971704407500028207 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EAE7D201725288E002751EF /* CoreMedia.framework */,
+				6EAE7D1E171FEA54002751EF /* AVFoundation.framework */,
+				6EBFD5D31704410400028207 /* CoreMotion.framework */,
+				6EBFD5D41704410400028207 /* CoreVideo.framework */,
+				6EBFD5D51704410400028207 /* ImageIO.framework */,
 				6EBFD5981704407500028207 /* UIKit.framework */,
 				6EBFD59A1704407500028207 /* Foundation.framework */,
 				6EBFD59C1704407500028207 /* CoreGraphics.framework */,
@@ -117,6 +149,9 @@
 		6EBFD59E1704407500028207 /* CameraSense */ = {
 			isa = PBXGroup;
 			children = (
+				6EEE4DC417428ADB009FE238 /* CMMotionManagerSim.h */,
+				6EEE4DC517428ADB009FE238 /* CMMotionManagerSim.m */,
+				6EBFD5D91704410700028207 /* CameraSense.entitlements */,
 				6EBFD5A71704407500028207 /* AppDelegate.h */,
 				6EBFD5A81704407500028207 /* AppDelegate.m */,
 				6EBFD5B01704407500028207 /* MainStoryboard.storyboard */,
@@ -130,6 +165,7 @@
 		6EBFD59F1704407500028207 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6EBFD5DA170C200F00028207 /* smiley-face-200x200.jpg */,
 				6EBFD5A01704407500028207 /* CameraSense-Info.plist */,
 				6EBFD5A11704407500028207 /* InfoPlist.strings */,
 				6EBFD5A41704407500028207 /* main.m */,
@@ -236,6 +272,7 @@
 				6EBFD5AD1704407500028207 /* Default@2x.png in Resources */,
 				6EBFD5AF1704407500028207 /* Default-568h@2x.png in Resources */,
 				6EBFD5B21704407500028207 /* MainStoryboard.storyboard in Resources */,
+				6EBFD5DB170C200F00028207 /* smiley-face-200x200.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +310,7 @@
 				6EBFD5A51704407500028207 /* main.m in Sources */,
 				6EBFD5A91704407500028207 /* AppDelegate.m in Sources */,
 				6EBFD5B51704407500028207 /* ViewController.m in Sources */,
+				6EEE4DC617428ADB009FE238 /* CMMotionManagerSim.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,10 +419,14 @@
 		6EBFD5CE1704407500028207 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CameraSense/CameraSense-Prefix.pch";
 				INFOPLIST_FILE = "CameraSense/CameraSense-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,10 +434,15 @@
 		6EBFD5CF1704407500028207 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CameraSense/CameraSense-Prefix.pch";
 				INFOPLIST_FILE = "CameraSense/CameraSense-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -453,6 +500,7 @@
 				6EBFD5CF1704407500028207 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EBFD5D01704407500028207 /* Build configuration list for PBXNativeTarget "CameraSenseTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +509,7 @@
 				6EBFD5D21704407500028207 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

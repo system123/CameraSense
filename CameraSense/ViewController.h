@@ -7,7 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <CoreMotion/CoreMotion.h>
 
-@interface ViewController : UIViewController
+#define BALL_R 25
+
+struct motionData {
+    size_t width;
+    size_t height;
+    size_t bytesPerRow;
+    uint8_t* video;    
+    double gyroX, gyroY, gyroZ;
+    double accelX, accelY, accelZ;
+    double magX, magY, magZ;
+};
+
+@interface ViewController : UIViewController <UITextFieldDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection;
+
+- (IBAction)changeGreeting:(id)sender;
+- (void) writeSampleBuffer:(CMSampleBufferRef)sampleBuffer withSensorData:(NSData *)sensorData frameNumber:(int) fno;
+
+@property (weak, nonatomic) IBOutlet UILabel *magLabel;
+@property (weak, nonatomic) IBOutlet UILabel *accelLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gyroLabel;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
