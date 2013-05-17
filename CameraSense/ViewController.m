@@ -17,6 +17,7 @@ int cnt;
     GPUImageOutput<GPUImageInput> *filter;
     GPUImageMovieWriter *movieWriter;
     dispatch_queue_t fqueue;
+    NSFileManager* filemgr;
 }
 @property (strong, nonatomic) CMMotionManager  *motionManager;
 @property (strong, nonatomic) NSOperationQueue *queue;
@@ -48,49 +49,16 @@ int cnt;
     self.motionManager = [[CMMotionManager alloc] init];
     self.queue = [[NSOperationQueue alloc] init];
     
-    [self.accelLabel setText:self.root];
-    
-    if (self.motionManager.accelerometerAvailable){
-        
-        self.motionManager.accelerometerUpdateInterval = 1.0/60.0;
-        [self.motionManager startAccelerometerUpdates];
-
-    } else {
-        [self.accelLabel setText:@"This device does not have an accelerometer"];
-    }
-    
-    if (self.motionManager.gyroAvailable){
-        
-        self.motionManager.gyroUpdateInterval = 1.0/60.0;
-        [self.motionManager startGyroUpdates];
-
-    } else {
-        [self.accelLabel setText:@"This device does not have an gyroscope"];
-    }
-    
-    if (self.motionManager.magnetometerAvailable){
-        
-        self.motionManager.magnetometerUpdateInterval = 1.0/60.0;
-        [self.motionManager startMagnetometerUpdates];
-
-    } else {
-        [self.magLabel setText:@"This device does not have an magnemometer"];
-    }
-    
-    
     videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
     videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
+    videoCamera.horizontallyMirrorFrontFacingCamera = NO;
     videoCamera.horizontallyMirrorRearFacingCamera = NO;
     
-     NSString *pathToMovie = [NSString stringWithFormat:@"%@/Movie.m4v",self.root];
-     unlink([pathToMovie UTF8String]); // If a file already exists, AVAssetWriter won't let you record new frames, so delete the old movie
-     NSURL *movieURL = [NSURL fileURLWithPath:pathToMovie];
+    filter = [[GPUImageBrightnessFilter alloc] init];
+    [(GPUImageBrightnessFilter *)filter setBrightness:0.0];
     
-    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(480.0, 640.0)];
+    [videoCamera addTarget:filter];
     
-    [videoCamera addTarget:movieWriter];
-    movieWriter.delegate = self;
-      
 //    self.session = [[AVCaptureSession alloc] init];
 //       
 //    self.session.sessionPreset = AVCaptureSessionPreset640x480;
@@ -112,9 +80,8 @@ int cnt;
     [self.videoLayer setFrame:CGRectMake(0, 0, 480, 640)];
     [rootLayer insertSublayer:self.videoLayer atIndex:0];
     
-    [videoCamera startCameraCapture];    
-    [movieWriter startRecording];
-    
+    [videoCamera startCameraCapture];
+        
 //
 //    self.outputStream = [[AVCaptureVideoDataOutput alloc]init];
 //    self.outputStream.videoSettings = [NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedInt:kCVPixelFormatType_24BGR]
@@ -140,11 +107,21 @@ int cnt;
                      self.motionManager.gyroData.rotationRate.y,self.motionManager.gyroData.rotationRate.z,self.motionManager.magnetometerData.magneticField.x,
                      self.motionManager.magnetometerData.magneticField.y,self.motionManager.magnetometerData.magneticField.z];
     
+    CMAttitude *at = self.motionManager.deviceMotion.attitude;
+    CMAcceleration acc = self.motionManager.deviceMotion.userAcceleration;
+    CMAcceleration g = self.motionManager.deviceMotion.gravity;
+    
+    msg = [NSString stringWithFormat:@"%@ROT MATRIX\n%.6f %.6f %.6f\n%.6f %.6f %.6f\n%.6f %.6f %.6f\n", msg, at.rotationMatrix.m11, at.rotationMatrix.m12, at.rotationMatrix.m13,
+                                                                                            at.rotationMatrix.m21, at.rotationMatrix.m22, at.rotationMatrix.m23,
+                                                                                            at.rotationMatrix.m31, at.rotationMatrix.m32, at.rotationMatrix.m33];
+    
+    msg = [NSString stringWithFormat:@"%@QUATERNION\n%.6f %.6f %.6f %.6f\nUSRACC0, X:%.6f, Y:%.6f, Z:%.6f\nGACC0, X:%.6f, Y:%.6f, Z:%.6f\n", msg, at.quaternion.x, at.quaternion.y, at.quaternion.z, at.quaternion.w, acc.x, acc.y, acc.z, g.x, g.y, g.z];
+    
     [self.gyroLabel performSelectorOnMainThread:@selector(setText:) withObject:msg waitUntilDone:NO];
     
     [data appendData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
     
-    NSString* name = [self.root stringByAppendingPathComponent:[NSString stringWithFormat:@"frame%u.txt",cnt]];
+    NSString* name = [self.root stringByAppendingPathComponent:[NSString stringWithFormat:@"Sensors/frame%u.txt",cnt]];
     
     NSLog(name);
     
@@ -159,11 +136,71 @@ int cnt;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)changeGreeting:(id)sender {
+- (IBAction)stopCapture:(id)sender {
 //    [self.session stopRunning];
-    [videoCamera removeTarget:movieWriter];
+    [filter removeTarget:movieWriter];
     [movieWriter finishRecording];
+    [self.motionManager stopAccelerometerUpdates];
+    [self.motionManager stopDeviceMotionUpdates];
+    [self.motionManager stopGyroUpdates];
+    [self.motionManager stopMagnetometerUpdates];
+}
 
+- (IBAction)startCapture:(id)sender {
+
+    filemgr = [NSFileManager defaultManager];
+    [filemgr removeItemAtPath:[NSString stringWithFormat:@"%@/Sensors/",self.root] error:nil];
+    [filemgr createDirectoryAtPath:[NSString stringWithFormat:@"%@/Sensors/",self.root] withIntermediateDirectories:NO attributes:nil error:nil];
+        
+    NSString *pathToMovie = [NSString stringWithFormat:@"%@/Movie.m4v",self.root];
+    unlink([pathToMovie UTF8String]); // If a file already exists, AVAssetWriter won't let you record new frames, so delete the old movie
+    NSURL *movieURL = [NSURL fileURLWithPath:pathToMovie];
+    
+    movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(480.0, 640.0)];
+    
+    movieWriter.delegate = self;
+    [filter addTarget:movieWriter];
+    
+    [videoCamera startCameraCapture];
+    
+    cnt = 0;
+    
+    if (self.motionManager.accelerometerAvailable){
+        
+        self.motionManager.accelerometerUpdateInterval = 1.0/60.0;
+        [self.motionManager startAccelerometerUpdates];
+        
+    } else {
+        [self.accelLabel setText:@"This device does not have an accelerometer"];
+    }
+    
+    if (self.motionManager.gyroAvailable){
+        
+        self.motionManager.gyroUpdateInterval = 1.0/60.0;
+        [self.motionManager startGyroUpdates];
+        
+    } else {
+        [self.accelLabel setText:@"This device does not have an gyroscope"];
+    }
+    
+    if (self.motionManager.magnetometerAvailable){
+        
+        self.motionManager.magnetometerUpdateInterval = 1.0/60.0;
+        [self.motionManager startMagnetometerUpdates];
+        
+    } else {
+        [self.magLabel setText:@"This device does not have an magnemometer"];
+    }
+    
+    if (self.motionManager.deviceMotionAvailable){
+        self.motionManager.deviceMotionUpdateInterval = 1.0/60.0;
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXMagneticNorthZVertical];
+    } else {
+        [self.magLabel setText:@"This device cannot capture Device Motion"];
+    }
+    
+    [movieWriter startRecording];
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField*)theTextField {

@@ -27,7 +27,9 @@ struct motionData {
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection;
 
-- (IBAction)changeGreeting:(id)sender;
+- (IBAction)stopCapture:(id)sender;
+- (IBAction)startCapture:(id)sender;
+
 - (void) writeSampleBuffer:(CMSampleBufferRef)sampleBuffer withSensorData:(NSData *)sensorData frameNumber:(int) fno;
 
 - (void) frameAboutToWrite:(CMTime)frameTime;
