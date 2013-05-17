@@ -47,20 +47,20 @@
 @end
 
 @interface CMMotionManager (Simulation)
-@property(readonly, nonatomic, getter=isAccelerometerAvailable) BOOL accelerometerAvailable;
-@property(readonly, nonatomic, getter=isGyroAvailable) BOOL gyroAvailable;
-@property(readonly, nonatomic, getter=isMagnetometerAvailable) BOOL magnetometerAvailable;
 
-- (BOOL) isAccelerometerAvailable;
-- (BOOL) isGyroAvailable;
-- (BOOL) isMagnetometerAvailable;
+    @property(readonly, nonatomic, getter=isAccelerometerAvailable) BOOL accelerometerAvailable;
+    @property(readonly, nonatomic, getter=isGyroAvailable) BOOL gyroAvailable;
+    @property(readonly, nonatomic, getter=isMagnetometerAvailable) BOOL magnetometerAvailable;
+    
+    - (BOOL) isAccelerometerAvailable;
+    - (BOOL) isGyroAvailable;
+    - (BOOL) isMagnetometerAvailable;
 
 @end
 
-@interface CMMotionManager (Simulation) <NSMachPortDelegate>
+@interface CMMotionManagerSim : CMMotionManager <NSMachPortDelegate>
 {
-
-	//CFSocketRef udpSocket;
+    //CFSocketRef udpSocket;
 	int udpSocket;
     
     BOOL gyroOn, accelOn, magOn;
@@ -70,8 +70,8 @@
 	CMAccelerationSimulation *accelerometerData;
     CMRotationSimulation *gyroData;
     CMMagneticSimulation *magnetometerData;
-
-    // Threaded notification support 
+    
+    // Threaded notification support
     NSMutableArray *notifications;
     NSThread *notificationThread;
     NSLock *notificationLock;

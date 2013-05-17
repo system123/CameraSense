@@ -23,6 +23,8 @@
 @synthesize acceleration;
 @synthesize timestamp;
 
+
+
 -(CMAccelerationSimulation*)init:(NSTimeInterval)aTimeStamp X:(double)ax Y:(double)ay Z:(double)az
 {
 	self.timestamp = aTimeStamp;
@@ -84,7 +86,7 @@
 
 @end
 
-@implementation CMMotionManager (Simulation)  
+@implementation CMMotionManagerSim
 
 // this is straight from developer guide example for multi-threaded notifications
 - (void) setUpThreadingSupport {

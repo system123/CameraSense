@@ -23,12 +23,14 @@ struct motionData {
     double magX, magY, magZ;
 };
 
-@interface ViewController : UIViewController <UITextFieldDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface ViewController : UIViewController <UITextFieldDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, GPUImageMovieWriterDelegate>
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection;
 
 - (IBAction)changeGreeting:(id)sender;
 - (void) writeSampleBuffer:(CMSampleBufferRef)sampleBuffer withSensorData:(NSData *)sensorData frameNumber:(int) fno;
+
+- (void) frameAboutToWrite:(CMTime)frameTime;
 
 @property (weak, nonatomic) IBOutlet UILabel *magLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accelLabel;

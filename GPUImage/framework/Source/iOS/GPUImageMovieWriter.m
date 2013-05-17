@@ -544,7 +544,9 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
             glReadPixels(0, 0, videoSize.width, videoSize.height, GL_RGBA, GL_UNSIGNED_BYTE, pixelBufferData);
         }
     }
-        
+    
+  
+            
 //    if(![assetWriterPixelBufferInput appendPixelBuffer:pixel_buffer withPresentationTime:CMTimeSubtract(frameTime, startTime)]) 
     if(![assetWriterPixelBufferInput appendPixelBuffer:pixel_buffer withPresentationTime:frameTime]) 
     {
@@ -552,6 +554,9 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     } 
     else 
     {
+        if ([self.delegate respondsToSelector:@selector(frameAboutToWrite:)]) {
+            [self.delegate frameAboutToWrite:frameTime];
+        }
 //        NSLog(@"Recorded video sample time: %lld, %d, %lld", frameTime.value, frameTime.timescale, frameTime.epoch);
     }
     CVPixelBufferUnlockBaseAddress(pixel_buffer, 0);
