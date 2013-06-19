@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1D9077174BBF3000C60178 /* GPUImageFASTCornerDetectorFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D9076174BBF3000C60178 /* GPUImageFASTCornerDetectorFilter.m */; };
+		6E1D9080174E0C9400C60178 /* FASTFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D907F174E0C9400C60178 /* FASTFragmentShader.fsh */; };
+		6E1D90851753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D90841753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.m */; };
+		6E1D9089175F1D6300C60178 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1D9088175F1D6300C60178 /* CFNetwork.framework */; };
+		6E1D908B175F1D7C00C60178 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1D908A175F1D7C00C60178 /* Reveal.framework */; };
 		6EAE7D1F171FEA54002751EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE7D1E171FEA54002751EF /* AVFoundation.framework */; };
 		6EAE7D211725288E002751EF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE7D201725288E002751EF /* CoreMedia.framework */; };
 		6EB439FF17450F42000935B0 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB439FC17450F35000935B0 /* libGPUImage.a */; };
@@ -66,6 +71,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E1D9075174BBF3000C60178 /* GPUImageFASTCornerDetectorFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageFASTCornerDetectorFilter.h; sourceTree = "<group>"; };
+		6E1D9076174BBF3000C60178 /* GPUImageFASTCornerDetectorFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageFASTCornerDetectorFilter.m; sourceTree = "<group>"; };
+		6E1D907F174E0C9400C60178 /* FASTFragmentShader.fsh */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = FASTFragmentShader.fsh; sourceTree = "<group>"; };
+		6E1D90831753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRadius4TextureSamplingFilter.h; sourceTree = "<group>"; };
+		6E1D90841753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageRadius4TextureSamplingFilter.m; sourceTree = "<group>"; };
+		6E1D9088175F1D6300C60178 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6E1D908A175F1D7C00C60178 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
 		6EAE7D1E171FEA54002751EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6EAE7D201725288E002751EF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6EB439F517450F35000935B0 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
@@ -107,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1D908B175F1D7C00C60178 /* Reveal.framework in Frameworks */,
+				6E1D9089175F1D6300C60178 /* CFNetwork.framework in Frameworks */,
 				6EB439FF17450F42000935B0 /* libGPUImage.a in Frameworks */,
 				6EB9474B1744CD74005D02BC /* OpenGLES.framework in Frameworks */,
 				6EB9474C1744CD74005D02BC /* QuartzCore.framework in Frameworks */,
@@ -145,6 +159,8 @@
 		6EBFD58C1704407400028207 = {
 			isa = PBXGroup;
 			children = (
+				6E1D908A175F1D7C00C60178 /* Reveal.framework */,
+				6E1D9088175F1D6300C60178 /* CFNetwork.framework */,
 				6EBFD59E1704407500028207 /* CameraSense */,
 				6EBFD5C21704407500028207 /* CameraSenseTests */,
 				6EBFD5971704407500028207 /* Frameworks */,
@@ -183,6 +199,10 @@
 		6EBFD59E1704407500028207 /* CameraSense */ = {
 			isa = PBXGroup;
 			children = (
+				6E1D90831753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.h */,
+				6E1D90841753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.m */,
+				6E1D9075174BBF3000C60178 /* GPUImageFASTCornerDetectorFilter.h */,
+				6E1D9076174BBF3000C60178 /* GPUImageFASTCornerDetectorFilter.m */,
 				6EEE4DC417428ADB009FE238 /* CMMotionManagerSim.h */,
 				6EEE4DC517428ADB009FE238 /* CMMotionManagerSim.m */,
 				6EBFD5D91704410700028207 /* CameraSense.entitlements */,
@@ -199,6 +219,7 @@
 		6EBFD59F1704407500028207 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6E1D907F174E0C9400C60178 /* FASTFragmentShader.fsh */,
 				6EBFD5DA170C200F00028207 /* smiley-face-200x200.jpg */,
 				6EBFD5A01704407500028207 /* CameraSense-Info.plist */,
 				6EBFD5A11704407500028207 /* InfoPlist.strings */,
@@ -326,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EBFD5A31704407500028207 /* InfoPlist.strings in Resources */,
+				6E1D9080174E0C9400C60178 /* FASTFragmentShader.fsh in Resources */,
 				6EBFD5AB1704407500028207 /* Default.png in Resources */,
 				6EBFD5AD1704407500028207 /* Default@2x.png in Resources */,
 				6EBFD5AF1704407500028207 /* Default-568h@2x.png in Resources */,
@@ -369,6 +391,8 @@
 				6EBFD5A91704407500028207 /* AppDelegate.m in Sources */,
 				6EBFD5B51704407500028207 /* ViewController.m in Sources */,
 				6EEE4DC617428ADB009FE238 /* CMMotionManagerSim.m in Sources */,
+				6E1D9077174BBF3000C60178 /* GPUImageFASTCornerDetectorFilter.m in Sources */,
+				6E1D90851753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +510,10 @@
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CameraSense/CameraSense-Prefix.pch";
 				HEADER_SEARCH_PATHS = "GPUImage/framework/**";
@@ -495,6 +523,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Programming/GPUImage/build/Debug-iphoneos\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -510,6 +539,10 @@
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CameraSense/CameraSense-Prefix.pch";
 				HEADER_SEARCH_PATHS = "GPUImage/framework/**";
@@ -520,6 +553,7 @@
 					"\"$(SRCROOT)/../../../Programming/GPUImage/build/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

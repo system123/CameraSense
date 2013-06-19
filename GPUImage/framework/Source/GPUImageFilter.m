@@ -619,6 +619,12 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
     [self setVec3:newVec3 forUniform:uniformIndex program:filterProgram];
 }
 
+- (void)setFloatVec2:(GPUVector2)newVec2 forUniformName:(NSString *)uniformName;
+{
+    GLint uniformIndex = [filterProgram uniformIndex:uniformName];
+    [self setVec2:newVec2 forUniform:uniformIndex program:filterProgram];
+}
+
 - (void)setFloatVec4:(GPUVector4)newVec4 forUniform:(NSString *)uniformName;
 {
     GLint uniformIndex = [filterProgram uniformIndex:uniformName];
@@ -687,6 +693,17 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
             sizeArray[1] = sizeValue.height;
             
             glUniform2fv(uniform, 1, sizeArray);
+        }];
+    });
+}
+
+- (void)setVec2:(GPUVector2)vectorValue forUniform:(GLint)uniform program:(GLProgram *)shaderProgram;
+{
+    runAsynchronouslyOnVideoProcessingQueue(^{
+        [GPUImageContext setActiveShaderProgram:shaderProgram];
+        
+        [self setAndExecuteUniformStateCallbackAtIndex:uniform forProgram:shaderProgram toBlock:^{
+            glUniform2fv(uniform, 1, (GLfloat *)&vectorValue);
         }];
     });
 }
@@ -1006,6 +1023,16 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
 - (BOOL)wantsMonochromeInput;
 {
     return NO;
+}
+
+- (GLProgram*) getFilterProgram;
+{
+    return filterProgram;
+}
+
+- (GLuint) getFilterProgramID;
+{
+    return [filterProgram getFilterProgramID];
 }
 
 #pragma mark -

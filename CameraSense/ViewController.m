@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CMMotionManagerSim.h"
+#import "GPUImageFASTCornerDetectorFilter.h"
 
 int cnt;
 
@@ -15,6 +16,8 @@ int cnt;
 {
     GPUImageVideoCamera *videoCamera;
     GPUImageOutput<GPUImageInput> *filter;
+    GPUImageFASTCornerDetectorFilter *FASTfilter;
+    GPUImageShiTomasiFeatureDetectionFilter *CornerDetect;
     GPUImageMovieWriter *movieWriter;
     dispatch_queue_t fqueue;
     NSFileManager* filemgr;
@@ -57,8 +60,35 @@ int cnt;
     filter = [[GPUImageBrightnessFilter alloc] init];
     [(GPUImageBrightnessFilter *)filter setBrightness:0.0];
     
+    FASTfilter = [[GPUImageFASTCornerDetectorFilter alloc] init];
+    CornerDetect = [[GPUImageShiTomasiFeatureDetectionFilter alloc] init];
+      
     [videoCamera addTarget:filter];
+    //[filter addTarget:FASTfilter];
     
+    [FASTfilter setupFilterForSize:CGSizeMake(480.0, 640.0)];
+//    
+//    GPUImageCrosshairGenerator *crosshairGenerator = [[GPUImageCrosshairGenerator alloc] init];
+//    crosshairGenerator.crosshairWidth = 15.0;
+//    [crosshairGenerator forceProcessingAtSize:CGSizeMake(480.0, 640.0)];
+//
+//    [CornerDetect setCornersDetectedBlock:^(GLfloat* cornerArray, NSUInteger cornersDetected, CMTime frameTime){
+//        
+//        [crosshairGenerator renderCrosshairsFromArray:cornerArray count:cornersDetected frameTime:frameTime];
+//        NSLog(@"corners: %u", cornersDetected);
+//        
+//    }];
+//    
+//    GPUImageAlphaBlendFilter *blendFilter = [[GPUImageAlphaBlendFilter alloc] init];
+//    [blendFilter forceProcessingAtSize:CGSizeMake(480.0, 640.0)];
+    
+    GPUImageView *filterView = [[GPUImageView alloc] init];
+    [filter addTarget:filterView];
+    
+//    [videoCamera addTarget:blendFilter];
+//    [filter addTarget:CornerDetect];
+//    [crosshairGenerator addTarget:blendFilter];
+   
 //    self.session = [[AVCaptureSession alloc] init];
 //       
 //    self.session.sessionPreset = AVCaptureSessionPreset640x480;
@@ -70,15 +100,16 @@ int cnt;
 //    
 //    if ([self.session canAddInput:self.cameraStream])
 //        [self.session addInput:self.cameraStream];
+//   
+//    self.videoLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:videoCamera.captureSession];
 //    
-    self.videoLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:videoCamera.captureSession];
-    
-    [self.videoLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+//    [self.videoLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     
     CALayer *rootLayer = [[self view] layer];
     [rootLayer setMasksToBounds:YES];
-    [self.videoLayer setFrame:CGRectMake(0, 0, 480, 640)];
-    [rootLayer insertSublayer:self.videoLayer atIndex:0];
+   
+    [filterView setFrame:rootLayer.bounds];
+    [rootLayer insertSublayer:filterView.layer atIndex:0];
     
     [videoCamera startCameraCapture];
         

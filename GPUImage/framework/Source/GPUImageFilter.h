@@ -22,6 +22,12 @@ struct GPUVector3 {
 };
 typedef struct GPUVector3 GPUVector3;
 
+struct GPUVector2 {
+    GLfloat one;
+    GLfloat two;
+};
+typedef struct GPUVector2 GPUVector2;
+
 struct GPUMatrix4x4 {
     GPUVector4 one;
     GPUVector4 two;
@@ -76,6 +82,8 @@ typedef struct GPUMatrix3x3 GPUMatrix3x3;
 
 /// @name Initialization and teardown
 
+- (GLProgram*) getFilterProgram;
+- (GLuint) getFilterProgramID;
 /**
  Initialize with vertex and fragment shaders
  
@@ -129,6 +137,7 @@ typedef struct GPUMatrix3x3 GPUMatrix3x3;
 - (void)setFloat:(GLfloat)newFloat forUniformName:(NSString *)uniformName;
 - (void)setSize:(CGSize)newSize forUniformName:(NSString *)uniformName;
 - (void)setPoint:(CGPoint)newPoint forUniformName:(NSString *)uniformName;
+- (void)setFloatVec2:(GPUVector2)newVec2 forUniformName:(NSString *)uniformName;
 - (void)setFloatVec3:(GPUVector3)newVec3 forUniformName:(NSString *)uniformName;
 - (void)setFloatVec4:(GPUVector4)newVec4 forUniform:(NSString *)uniformName;
 - (void)setFloatArray:(GLfloat *)array length:(GLsizei)count forUniform:(NSString*)uniformName;
@@ -138,6 +147,7 @@ typedef struct GPUMatrix3x3 GPUMatrix3x3;
 - (void)setFloat:(GLfloat)floatValue forUniform:(GLint)uniform program:(GLProgram *)shaderProgram;
 - (void)setPoint:(CGPoint)pointValue forUniform:(GLint)uniform program:(GLProgram *)shaderProgram;
 - (void)setSize:(CGSize)sizeValue forUniform:(GLint)uniform program:(GLProgram *)shaderProgram;
+- (void)setVec2:(GPUVector2)vectorValue forUniform:(GLint)uniform program:(GLProgram *)shaderProgram;
 - (void)setVec3:(GPUVector3)vectorValue forUniform:(GLint)uniform program:(GLProgram *)shaderProgram;
 - (void)setVec4:(GPUVector4)vectorValue forUniform:(GLint)uniform program:(GLProgram *)shaderProgram;
 - (void)setFloatArray:(GLfloat *)arrayValue length:(GLsizei)arrayLength forUniform:(GLint)uniform program:(GLProgram *)shaderProgram;
