@@ -135,8 +135,8 @@ int cnt;
     
     NSString *msg = [NSString stringWithFormat:@"FRAME %lld\nACC0, X:%.6f, Y:%.6f, Z:%.6f\nGYR0, X:%.6f, Y:%.6f, Z:%.6f\nMAG0, X:%.6f, Y:%.6f, Z:%.6f\n",frameTime.value,self.motionManager.accelerometerData.acceleration.x,
                      self.motionManager.accelerometerData.acceleration.y,self.motionManager.accelerometerData.acceleration.z,self.motionManager.gyroData.rotationRate.x,
-                     self.motionManager.gyroData.rotationRate.y,self.motionManager.gyroData.rotationRate.z,self.motionManager.magnetometerData.magneticField.x,
-                     self.motionManager.magnetometerData.magneticField.y,self.motionManager.magnetometerData.magneticField.z];
+                     self.motionManager.gyroData.rotationRate.y,self.motionManager.gyroData.rotationRate.z,self.motionManager.deviceMotion.magneticField.field.x,
+                     self.motionManager.deviceMotion.magneticField.field.y,self.motionManager.deviceMotion.magneticField.field.z];
     
     CMAttitude *at = self.motionManager.deviceMotion.attitude;
     CMAcceleration acc = self.motionManager.deviceMotion.userAcceleration;
