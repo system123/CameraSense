@@ -67,30 +67,61 @@
                                     <action selector="startCapture:" destination="2" eventType="touchUpInside" id="y05-sG-y12"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPz-ZC-WVM">
+                                <accessibility key="accessibilityConfiguration" label="Send To Laptop"/>
+                                <connections>
+                                    <action selector="SendToLaptop:" destination="2" eventType="valueChanged" id="hqg-u3-ZQW"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Send to Laptop" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vi-CL-Ktw">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Write to File" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSl-p3-C0J">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="M6a-F5-kzQ">
+                                <connections>
+                                    <action selector="WriteToFile:" destination="2" eventType="valueChanged" id="xdo-Iu-Jqq"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="et9-nb-Axn" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="9wy-Wy-CaI"/>
+                            <constraint firstItem="M6a-F5-kzQ" firstAttribute="top" secondItem="Ild-rp-3xT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="AR2-XV-Uw5"/>
                             <constraint firstItem="et9-nb-Axn" firstAttribute="trailing" secondItem="LAg-Hv-bJ4" secondAttribute="trailing" type="default" id="Bkz-Wt-FhA"/>
                             <constraint firstItem="4gi-b4-ynq" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="9" id="D9e-Qa-BOE"/>
                             <constraint firstAttribute="bottom" secondItem="et9-nb-Axn" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="DNH-8J-hJ5"/>
                             <constraint firstItem="Ild-rp-3xT" firstAttribute="trailing" secondItem="SRu-VY-27S" secondAttribute="trailing" type="default" id="E1e-Uy-d2f"/>
                             <constraint firstItem="Ild-rp-3xT" firstAttribute="top" secondItem="3" secondAttribute="top" constant="204" id="FWT-mc-hIr"/>
+                            <constraint firstItem="TSl-p3-C0J" firstAttribute="centerY" secondItem="M6a-F5-kzQ" secondAttribute="centerY" type="default" id="Ima-fD-kn8"/>
                             <constraint firstItem="et9-nb-Axn" firstAttribute="top" secondItem="LAg-Hv-bJ4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ON8-lj-Or0"/>
+                            <constraint firstItem="M6a-F5-kzQ" firstAttribute="leading" secondItem="Ild-rp-3xT" secondAttribute="leading" type="default" id="QIa-nu-8Dk"/>
+                            <constraint firstItem="0vi-CL-Ktw" firstAttribute="centerY" secondItem="tPz-ZC-WVM" secondAttribute="centerY" type="default" id="SoY-nW-dDZ"/>
                             <constraint firstItem="SRu-VY-27S" firstAttribute="leading" secondItem="4gi-b4-ynq" secondAttribute="leading" type="default" id="Vth-8V-Nek"/>
                             <constraint firstItem="4gi-b4-ynq" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-33" id="ZbE-RD-z4O"/>
+                            <constraint firstItem="TSl-p3-C0J" firstAttribute="leading" secondItem="0vi-CL-Ktw" secondAttribute="leading" type="default" id="cRw-63-PrM"/>
+                            <constraint firstItem="TSl-p3-C0J" firstAttribute="leading" secondItem="M6a-F5-kzQ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="f7Q-PA-pcN"/>
                             <constraint firstItem="LAg-Hv-bJ4" firstAttribute="leading" secondItem="et9-nb-Axn" secondAttribute="leading" type="default" id="gRX-QK-gFn"/>
-                            <constraint firstItem="LAg-Hv-bJ4" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="i6g-s9-NHS"/>
+                            <constraint firstItem="0vi-CL-Ktw" firstAttribute="leading" secondItem="tPz-ZC-WVM" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="nvt-O7-z8p"/>
                             <constraint firstItem="Ild-rp-3xT" firstAttribute="leading" secondItem="SRu-VY-27S" secondAttribute="leading" type="default" id="t4C-ra-2ga"/>
                             <constraint firstItem="SRu-VY-27S" firstAttribute="top" secondItem="4gi-b4-ynq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="v7h-ex-ff8"/>
+                            <constraint firstItem="tPz-ZC-WVM" firstAttribute="top" secondItem="M6a-F5-kzQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wM0-37-6el"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <connections>
+                        <outlet property="WriteToFile" destination="M6a-F5-kzQ" id="ldd-Q8-PUO"/>
                         <outlet property="accelLabel" destination="4gi-b4-ynq" id="hp9-Yz-Qjf"/>
                         <outlet property="button" destination="et9-nb-Axn" id="rhW-a8-4rM"/>
                         <outlet property="gyroLabel" destination="SRu-VY-27S" id="LaL-s8-s9H"/>
                         <outlet property="magLabel" destination="Ild-rp-3xT" id="eTe-3v-dBy"/>
+                        <outlet property="sendTo" destination="tPz-ZC-WVM" id="84o-ya-e3D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -105,12 +136,16 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="SendToLaptop:"/>
+                <relationship kind="action" name="WriteToFile:"/>
                 <relationship kind="action" name="startCapture:"/>
                 <relationship kind="action" name="stopCapture:"/>
                 <relationship kind="outlet" name="accelLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="gyroLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="magLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sendTo" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="writeToFile" candidateClass="UISwitch"/>
             </relationships>
         </class>
     </classes>

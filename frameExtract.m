@@ -7,7 +7,7 @@ usrAcc = [];
 gAcc = [];
 timeStamps = [];
 
-for i = 1:408
+for i = 1:232
     
     fid = fopen(sprintf('frame%u.txt',i));
 

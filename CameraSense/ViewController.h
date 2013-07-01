@@ -29,6 +29,8 @@ struct motionData {
 
 - (IBAction)stopCapture:(id)sender;
 - (IBAction)startCapture:(id)sender;
+- (IBAction)SendToLaptop:(id)sender;
+- (IBAction)WriteToFile:(id)sender;
 
 - (void) writeSampleBuffer:(CMSampleBufferRef)sampleBuffer withSensorData:(NSData *)sensorData frameNumber:(int) fno;
 
@@ -38,5 +40,7 @@ struct motionData {
 @property (weak, nonatomic) IBOutlet UILabel *accelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gyroLabel;
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UISwitch *sendTo;
+@property (weak, nonatomic) IBOutlet UISwitch *writeToFile;
 
 @end
