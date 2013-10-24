@@ -37,9 +37,9 @@
     grayScaleFilter = [[GPUImageGrayscaleFilter alloc] init];
     [self addFilter:grayScaleFilter];
     
-    medianFilter = [[GPUImageGaussianBlurFilter alloc] init];
-    [medianFilter setBlurSize:1]; 
-    [self addFilter:medianFilter];
+//    medianFilter = [[GPUImageGaussianBlurFilter alloc] init];
+//    [medianFilter setBlurSize:1]; 
+//    [self addFilter:medianFilter];
   
 //    __unsafe_unretained GPUImageFASTCornerDetectorFilter *weakSelf = self;
 //    [grayScaleFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *filter, CMTime frameTime) {
@@ -49,8 +49,8 @@
     FASTCornerDetectorFilter = [[GPUImageRadius4TextureSamplingFilter alloc] initWithFragmentShaderFromFile:cornerDetectionFragmentShader];
     [self addFilter:FASTCornerDetectorFilter];
     
-    [grayScaleFilter addTarget:medianFilter];
-    [medianFilter addTarget:FASTCornerDetectorFilter];
+//    [grayScaleFilter addTarget:medianFilter];
+    [grayScaleFilter addTarget:FASTCornerDetectorFilter];
     
     self.initialFilters = [NSArray arrayWithObjects:grayScaleFilter, nil];
     

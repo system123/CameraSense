@@ -7,13 +7,13 @@ usrAcc = [];
 gAcc = [];
 timeStamps = [];
 
-for i = 1:232
+for i = 1:235
     
     fid = fopen(sprintf('frame%u.txt',i));
 
-    frame = textscan(fid, '%s %u %*[^\n]',1);
-    
-    timeStamps = [timeStamps, frame{2}];
+%     frame = textscan(fid, '%s %u %*[^\n]',1);
+%     
+%     timeStamps = [timeStamps, frame{2}];
     
     sensors = textscan(fid, '%s X:%f Y:%f Z:%f',3,'delimiter',',','CollectOutput', true);
     frame = textscan(fid, '%s%*[^\n]',1);

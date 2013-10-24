@@ -37,7 +37,7 @@
 		6EBFD5D61704410400028207 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBFD5D31704410400028207 /* CoreMotion.framework */; };
 		6EBFD5D71704410400028207 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EBFD5D41704410400028207 /* CoreVideo.framework */; };
 		6EBFD5DB170C200F00028207 /* smiley-face-200x200.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBFD5DA170C200F00028207 /* smiley-face-200x200.jpg */; };
-		6EEE4DC617428ADB009FE238 /* CMMotionManagerSim.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE4DC517428ADB009FE238 /* CMMotionManagerSim.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc "; }; };
+		6EEE4DC617428ADB009FE238 /* CMMotionManagerSim.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE4DC517428ADB009FE238 /* CMMotionManagerSim.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,6 +304,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Lloyd Hughes";
+				TargetAttributes = {
+					6EBFD5941704407500028207 = {
+						DevelopmentTeam = PQ4C4EFANF;
+					};
+				};
 			};
 			buildConfigurationList = 6EBFD5901704407500028207 /* Build configuration list for PBXProject "CameraSense" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -514,7 +519,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lloyd Hughes (PKCXUJP356)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -531,7 +536,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5377E529-4EFE-4DD9-BAD0-2A69C7070911";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
@@ -543,7 +548,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lloyd Hughes (PKCXUJP356)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -561,7 +566,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5377E529-4EFE-4DD9-BAD0-2A69C7070911";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;

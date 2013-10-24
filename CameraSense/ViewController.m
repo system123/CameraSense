@@ -161,9 +161,18 @@ int cnt;
     msg = [NSString stringWithFormat:@"%@ROT MATRIX\n%.6f %.6f %.6f\n%.6f %.6f %.6f\n%.6f %.6f %.6f\n", msg, at.rotationMatrix.m11, at.rotationMatrix.m12, at.rotationMatrix.m13,
                                                                                             at.rotationMatrix.m21, at.rotationMatrix.m22, at.rotationMatrix.m23,
                                                                                             at.rotationMatrix.m31, at.rotationMatrix.m32, at.rotationMatrix.m33];
-    }
     
     msg = [NSString stringWithFormat:@"%@QUATERNION\n%.6f %.6f %.6f %.6f\nUSRACC0, X:%.6f, Y:%.6f, Z:%.6f\nGACC0, X:%.6f, Y:%.6f, Z:%.6f\n", msg, at.quaternion.x, at.quaternion.y, at.quaternion.z, at.quaternion.w, acc.x, acc.y, acc.z, g.x, g.y, g.z];
+    }
+    else {        
+        msg = [NSString stringWithFormat:@"ACC0, X:%.6f, Y:%.6f, Z:%.6f\nGYR0, X:%.6f, Y:%.6f, Z:%.6f\nMAG0, X:%.6f, Y:%.6f, Z:%.6f\n",
+               self.motionManager.accelerometerData.acceleration.x,
+               self.motionManager.accelerometerData.acceleration.y,self.motionManager.accelerometerData.acceleration.z,self.motionManager.gyroData.rotationRate.x,
+               self.motionManager.gyroData.rotationRate.y,self.motionManager.gyroData.rotationRate.z,self.motionManager.deviceMotion.magneticField.field.x,
+               self.motionManager.deviceMotion.magneticField.field.y,self.motionManager.deviceMotion.magneticField.field.z];
+        
+    msg = [NSString stringWithFormat:@"%@QUATERNION\n%.6f %.6f %.6f %.6f\nGACC0, X:%.6f, Y:%.6f, Z:%.6f\n", msg, at.quaternion.x, at.quaternion.y, at.quaternion.z, at.quaternion.w, g.x, g.y, g.z];
+    }
     
     [self.gyroLabel performSelectorOnMainThread:@selector(setText:) withObject:msg waitUntilDone:NO];
     [data appendData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
@@ -173,7 +182,7 @@ int cnt;
         [sock sendData:data toHost:@"10.10.11.108" port:12345 withTimeout:10 tag:cnt];
     }
     else {
-       [sock sendData:data toHost:@"10.10.11.79" port:12345 withTimeout:10 tag:cnt]; 
+        [sock sendData:data toHost:@"10.10.11.79" port:12345 withTimeout:10 tag:cnt]; 
     }
     
 
@@ -203,6 +212,8 @@ int cnt;
     [self.motionManager stopDeviceMotionUpdates];
     [self.motionManager stopGyroUpdates];
     [self.motionManager stopMagnetometerUpdates];
+    
+    
 }
 
 - (IBAction)startCapture:(id)sender {
