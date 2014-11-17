@@ -901,6 +901,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                     case UIInterfaceOrientationPortraitUpsideDown:outputRotation = kGPUImageRotate180; break;
                     case UIInterfaceOrientationLandscapeLeft:outputRotation = kGPUImageFlipHorizonal; break;
                     case UIInterfaceOrientationLandscapeRight:outputRotation = kGPUImageFlipVertical; break;
+                    case UIInterfaceOrientationUnknown:outputRotation = kGPUImageNoRotation; break;
                 }
             }
             else
@@ -911,6 +912,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                     case UIInterfaceOrientationPortraitUpsideDown:outputRotation = kGPUImageRotateLeft; break;
                     case UIInterfaceOrientationLandscapeLeft:outputRotation = kGPUImageNoRotation; break;
                     case UIInterfaceOrientationLandscapeRight:outputRotation = kGPUImageRotate180; break;
+                    case UIInterfaceOrientationUnknown:outputRotation = kGPUImageNoRotation; break;
                 }
             }
         }
@@ -924,6 +926,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                     case UIInterfaceOrientationPortraitUpsideDown:outputRotation = kGPUImageRotateLeft; break;
                     case UIInterfaceOrientationLandscapeLeft:outputRotation = kGPUImageRotate180; break;
                     case UIInterfaceOrientationLandscapeRight:outputRotation = kGPUImageNoRotation; break;
+                    case UIInterfaceOrientationUnknown:outputRotation = kGPUImageNoRotation; break;
                 }
             }
             else
@@ -934,6 +937,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                     case UIInterfaceOrientationPortraitUpsideDown:outputRotation = kGPUImageRotateRight; break;
                     case UIInterfaceOrientationLandscapeLeft:outputRotation = kGPUImageFlipVertical; break;
                     case UIInterfaceOrientationLandscapeRight:outputRotation = kGPUImageFlipHorizonal; break;
+                    case UIInterfaceOrientationUnknown:outputRotation = kGPUImageNoRotation; break;
                 }
             }
         }
