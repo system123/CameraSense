@@ -174,7 +174,8 @@ int cnt;
     msg = [NSString stringWithFormat:@"%@QUATERNION\n%.6f %.6f %.6f %.6f\nGACC0, X:%.6f, Y:%.6f, Z:%.6f\n", msg, at.quaternion.x, at.quaternion.y, at.quaternion.z, at.quaternion.w, g.x, g.y, g.z];
     }
 
-    msg = [NSString stringWithFormat:@"%@T:%.6f", msg, self.motionManager.deviceMotion.timestamp];
+    msg = [NSString stringWithFormat:@"%@T_device:%.6f\n", msg, self.motionManager.deviceMotion.timestamp];
+    msg = [NSString stringWithFormat:@"%@T_camera:%.6f\n", msg, (float)frameTime.value/frameTime.timescale];
 
     [self.gyroLabel performSelectorOnMainThread:@selector(setText:) withObject:msg waitUntilDone:NO];
     [data appendData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
