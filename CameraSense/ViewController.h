@@ -42,5 +42,6 @@ struct motionData {
 @property (weak, nonatomic) IBOutlet UIButton *button;
 @property (weak, nonatomic) IBOutlet UISwitch *sendTo;
 @property (weak, nonatomic) IBOutlet UISwitch *writeToFile;
+@property NSTimeInterval offset;
 
 @end
