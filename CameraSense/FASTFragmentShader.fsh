@@ -152,8 +152,10 @@ bool checkCorner(int i){
                         radius[ccIDX[i + 15]]))
     
     );
-    
-    lowp float sum = dot(check, lowp vec4(1.0));
+
+    lowp vec4 ones;
+    ones = vec4(1.0, 1.0, 1.0, 1.0);
+    lowp float sum = dot(check, ones);
     
     if (sum == 3.0 || sum == -3.0)
         return true;

@@ -11,7 +11,6 @@
 		6E1D9080174E0C9400C60178 /* FASTFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E1D907F174E0C9400C60178 /* FASTFragmentShader.fsh */; };
 		6E1D90851753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1D90841753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.m */; };
 		6E1D9089175F1D6300C60178 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1D9088175F1D6300C60178 /* CFNetwork.framework */; };
-		6E1D908B175F1D7C00C60178 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1D908A175F1D7C00C60178 /* Reveal.framework */; };
 		6EAE7D1F171FEA54002751EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE7D1E171FEA54002751EF /* AVFoundation.framework */; };
 		6EAE7D211725288E002751EF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE7D201725288E002751EF /* CoreMedia.framework */; };
 		6EB039D8177AF8A0008B73FC /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB039D7177AF8A0008B73FC /* GCDAsyncUdpSocket.m */; };
@@ -78,7 +77,6 @@
 		6E1D90831753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageRadius4TextureSamplingFilter.h; sourceTree = "<group>"; };
 		6E1D90841753571C00C60178 /* GPUImageRadius4TextureSamplingFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageRadius4TextureSamplingFilter.m; sourceTree = "<group>"; };
 		6E1D9088175F1D6300C60178 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		6E1D908A175F1D7C00C60178 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
 		6EAE7D1E171FEA54002751EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6EAE7D201725288E002751EF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6EB039D6177AF8A0008B73FC /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = ../GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E1D908B175F1D7C00C60178 /* Reveal.framework in Frameworks */,
 				6E1D9089175F1D6300C60178 /* CFNetwork.framework in Frameworks */,
 				6EB439FF17450F42000935B0 /* libGPUImage.a in Frameworks */,
 				6EB9474B1744CD74005D02BC /* OpenGLES.framework in Frameworks */,
@@ -162,7 +159,6 @@
 		6EBFD58C1704407400028207 = {
 			isa = PBXGroup;
 			children = (
-				6E1D908A175F1D7C00C60178 /* Reveal.framework */,
 				6E1D9088175F1D6300C60178 /* CFNetwork.framework */,
 				6EBFD59E1704407500028207 /* CameraSense */,
 				6EBFD5C21704407500028207 /* CameraSenseTests */,

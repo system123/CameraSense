@@ -288,7 +288,9 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
         }
         else {
             // Not running iOS 6
-            [assetWriter finishWriting];
+            [assetWriter finishWritingWithCompletionHandler:^(){
+              NSLog (@"finished writing");
+            }];
             if (handler) handler();
         }
 #endif
@@ -654,7 +656,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
         }
         else if (audioOutputSettings == nil)
         {
-            double preferredHardwareSampleRate = [[AVAudioSession sharedInstance] currentHardwareSampleRate];
+            double preferredHardwareSampleRate = [[AVAudioSession sharedInstance] sampleRate];
             
             AudioChannelLayout acl;
             bzero( &acl, sizeof(acl));

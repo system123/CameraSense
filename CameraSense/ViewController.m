@@ -173,11 +173,19 @@ int cnt;
         
     msg = [NSString stringWithFormat:@"%@QUATERNION\n%.6f %.6f %.6f %.6f\nGACC0, X:%.6f, Y:%.6f, Z:%.6f\n", msg, at.quaternion.x, at.quaternion.y, at.quaternion.z, at.quaternion.w, g.x, g.y, g.z];
     }
-    
+
+    NSTimeInterval inertial_timestamp = self.motionManager.deviceMotion.timestamp + self.offset;
+    NSTimeInterval camera_timestamp = (float)frameTime.value/frameTime.timescale + self.offset;
+
+    CMTimeValue inertial_stamp = inertial_timestamp*(frameTime.timescale);
+    CMTimeValue camera_stamp = camera_timestamp*(frameTime.timescale);
+
+    msg = [NSString stringWithFormat:@"%@T_device:%.6lld\n", msg, inertial_stamp];
+    msg = [NSString stringWithFormat:@"%@T_camera:%.6lld\n", msg, camera_stamp];
+
     [self.gyroLabel performSelectorOnMainThread:@selector(setText:) withObject:msg waitUntilDone:NO];
     [data appendData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
-    
-    
+
     if (sendToLaptop){
         [sock sendData:data toHost:@"10.10.11.108" port:12345 withTimeout:10 tag:cnt];
     }
@@ -217,6 +225,10 @@ int cnt;
 }
 
 - (IBAction)startCapture:(id)sender {
+
+    NSTimeInterval uptime = [NSProcessInfo processInfo].systemUptime;
+    NSTimeInterval nowTimeIntervalSince1970 = [[NSDate date] timeIntervalSince1970];
+    self.offset = nowTimeIntervalSince1970 - uptime;
 
     filemgr = [NSFileManager defaultManager];
     [filemgr removeItemAtPath:[NSString stringWithFormat:@"%@/Sensors/",self.root] error:nil];

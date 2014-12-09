@@ -458,25 +458,15 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
 	
 	if (_frameRate > 0)
 	{
-		for (AVCaptureConnection *connection in videoOutput.connections)
-		{
-			if ([connection respondsToSelector:@selector(setVideoMinFrameDuration:)])
-				connection.videoMinFrameDuration = CMTimeMake(1, _frameRate);
-			
-			if ([connection respondsToSelector:@selector(setVideoMaxFrameDuration:)])
-				connection.videoMaxFrameDuration = CMTimeMake(1, _frameRate);
-		}
+    [_inputCamera setActiveVideoMinFrameDuration:CMTimeMake(1, _frameRate)];
+
+    [_inputCamera setActiveVideoMaxFrameDuration:CMTimeMake(1, _frameRate)];
 	}
 	else
 	{
-		for (AVCaptureConnection *connection in videoOutput.connections)
-		{
-			if ([connection respondsToSelector:@selector(setVideoMinFrameDuration:)])
-				connection.videoMinFrameDuration = kCMTimeInvalid; // This sets videoMinFrameDuration back to default
-			
-			if ([connection respondsToSelector:@selector(setVideoMaxFrameDuration:)])
-				connection.videoMaxFrameDuration = kCMTimeInvalid; // This sets videoMaxFrameDuration back to default
-		}
+    [_inputCamera setActiveVideoMinFrameDuration:kCMTimeInvalid]; // This sets videoMinFrameDuration back to default
+
+    [_inputCamera setActiveVideoMaxFrameDuration:kCMTimeInvalid]; // This sets videoMaxFrameDuration back to default
 	}
 }
 
@@ -911,6 +901,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                     case UIInterfaceOrientationPortraitUpsideDown:outputRotation = kGPUImageRotate180; break;
                     case UIInterfaceOrientationLandscapeLeft:outputRotation = kGPUImageFlipHorizonal; break;
                     case UIInterfaceOrientationLandscapeRight:outputRotation = kGPUImageFlipVertical; break;
+                    case UIInterfaceOrientationUnknown:outputRotation = kGPUImageNoRotation; break;
                 }
             }
             else
@@ -921,6 +912,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                     case UIInterfaceOrientationPortraitUpsideDown:outputRotation = kGPUImageRotateLeft; break;
                     case UIInterfaceOrientationLandscapeLeft:outputRotation = kGPUImageNoRotation; break;
                     case UIInterfaceOrientationLandscapeRight:outputRotation = kGPUImageRotate180; break;
+                    case UIInterfaceOrientationUnknown:outputRotation = kGPUImageNoRotation; break;
                 }
             }
         }
@@ -934,6 +926,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                     case UIInterfaceOrientationPortraitUpsideDown:outputRotation = kGPUImageRotateLeft; break;
                     case UIInterfaceOrientationLandscapeLeft:outputRotation = kGPUImageRotate180; break;
                     case UIInterfaceOrientationLandscapeRight:outputRotation = kGPUImageNoRotation; break;
+                    case UIInterfaceOrientationUnknown:outputRotation = kGPUImageNoRotation; break;
                 }
             }
             else
@@ -944,6 +937,7 @@ NSString *const kGPUImageYUVVideoRangeConversionForLAFragmentShaderString = SHAD
                     case UIInterfaceOrientationPortraitUpsideDown:outputRotation = kGPUImageRotateRight; break;
                     case UIInterfaceOrientationLandscapeLeft:outputRotation = kGPUImageFlipVertical; break;
                     case UIInterfaceOrientationLandscapeRight:outputRotation = kGPUImageFlipHorizonal; break;
+                    case UIInterfaceOrientationUnknown:outputRotation = kGPUImageNoRotation; break;
                 }
             }
         }
